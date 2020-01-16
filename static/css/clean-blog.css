@@ -168,6 +168,11 @@ img::-moz-selection {
   }
 }
 
+.img1 {
+
+  background-image: url('img/tournament.jpg')
+}
+
 header.masthead {
   margin-bottom: 50px;
   background: no-repeat center center;
