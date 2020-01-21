@@ -8,7 +8,7 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_article(name ,title, paragraph1,paragraph2):
+def add_article(name ,title, paragraph1,paragraph2, release_date, author,id):
 	"""
 	Add a student to the database, given
 	their name, year, and whether they have
@@ -18,42 +18,45 @@ def add_article(name ,title, paragraph1,paragraph2):
 		name=name,
 		title=title,
                 paragraph1 = paragraph1,
-                paragraph2 = paragraph2)
-	Customer_object.hash_password(password)
-	session.add(Customer_object)
+                paragraph2 = paragraph2,
+                realese_date = release_date,
+                author = author,
+                id=id)
+	article_object.hash_password(password)
+	session.add(article_object)
 	session.commit()
 
-def query_customers_by_name(name):
+def query_article_by_name(name):
 	"""
 	Find the first student in the database,
 	by their name
 	"""
-	Customers = session.query(Customers).filter_by(
+	article = session.query(article).filter_by(
 		name=name).first()
 	return Customer
 
-def query_all_customers():
+def query_all_article():
 	"""
 	Print all the students in the database.
 	"""
-	Customers = session.query(Customers).all()
+	article = session.query(article).all()
 	return Customers
 
-def delete_customer_id(id_number):
+def delete_article_id(id_number):
 	"""
 	Delete all students with a certain name
 	from the database.
 	"""
-	session.query(Customers).filter_by(
-		Customer_id=id_number).delete()
+	session.query(article).filter_by(
+		article_id=id_number).delete()
 	session.commit()
 
-def delete_customer_name(name):
+def delete_article_name(name):
 	"""
 	Delete all students with a certain name
 	from the database.
 	"""
-	session.query(Customers).filter_by(
+	session.query(article).filter_by(
 		name=name).delete()
 	session.commit()
 
@@ -67,10 +70,10 @@ def delete_customer_name(name):
 ##	Customer_object.finished_lab = finished_lab
 ##	session.commit()
 
-def query_customer_by_id(customer_id):
-    Customers = session.query(Customers).filter_by(
-            customer_id=customer_id).first()
-    return Customer
+def query_article_by_id(article_id):
+    article = session.query(article).filter_by(
+            article_id=article).first()
+    return article
 
 
 def hash_password(self, password):
