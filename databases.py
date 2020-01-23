@@ -1,4 +1,5 @@
-from model import Base, Customers, Books
+from model import *
+from sqlalchemy.pool import SingletonThreadPool
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,23 +9,15 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_article(name ,title, paragraph1,paragraph2, release_date, author,id):
-	"""
-	Add a student to the database, given
-	their name, year, and whether they have
-	finished the lab.
-	"""
-	article_object = article(
-		name=name,
-		title=title,
-                paragraph1 = paragraph1,
-                paragraph2 = paragraph2,
-                realese_date = release_date,
-                author = author,
-                id=id)
-	article_object.hash_password(password)
-	session.add(article_object)
-	session.commit()
+def add_article(article_id,article_title,paragraph,release_date,author):
+        article_object = article(
+        article_id = article_id,
+        article_title = article_title,
+        paragraph = paragraph,
+        release_date = release_date,
+        author = author)
+        session.add(article_object)
+        session.commit()
 
 def query_article_by_name(name):
 	"""
@@ -141,3 +134,6 @@ def query_book_by_id(Book_id):
     Books = session.query(Books).filter_by(
             Book_id=Book_id).first()
     return student
+
+
+

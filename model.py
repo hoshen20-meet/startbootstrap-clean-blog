@@ -11,9 +11,8 @@ class article(Base):
    __tablename__ = 'article'
    article_id = Column(Integer, primary_key=True)
    title = Column(String)
-   paragraph1 = Column(String)
-   paragraph2 = Column(String)
-   realese_date = Column(String)
+   paragraph = Column(String)
+   release_date = Column(String)
    author = Column(String)
    
 
