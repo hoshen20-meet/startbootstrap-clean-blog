@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from model import *
 from flask import session as login_session
 
+from databases import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 
@@ -52,9 +53,9 @@ def add_books():
     if request.method == "GET":
         return render_template ("add_book.html" )
     else:
-        article_title=request.form['title']
+        title=request.form['title']
         authorname=request.form['authorname']
-        release_date=request.form['date']
+        date=request.form['date']
         paragraph=request.form['paragraph']
         add_article(title,authorname, paragraph, date)
         article = query_all_article()
