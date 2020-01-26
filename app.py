@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = 'you-will-never-guess'
  
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',Article=session.query(article).all())
 
 @app.route('/post')
 def post():
@@ -59,7 +59,7 @@ def add_books():
         paragraph=request.form['paragraph']
         add_article(title,author, paragraph, date)
         Article = query_all_article()
-        return render_template("index.html",article=article)
+        return render_template("index.html",Article=Article)
 
     
 app.run(debug = True)

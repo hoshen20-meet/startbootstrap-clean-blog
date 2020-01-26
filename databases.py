@@ -23,7 +23,7 @@ def query_article_by_name(name):
 	Find the first student in the database,
 	by their name
 	"""
-	article = session.query(article).filter_by(
+	Article = session.query(article).filter_by(
 		name=name).first()
 	return Customer
 
@@ -63,7 +63,7 @@ def delete_article_name(name):
 ##	session.commit()
 
 def query_article_by_id(article_id):
-    article = session.query(article).filter_by(
+    Article = session.query(article).filter_by(
             article_id=article).first()
     return article
 
