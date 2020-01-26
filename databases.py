@@ -9,10 +9,9 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_article(article_id,article_title,paragraph,release_date,author):
+def add_article(title,paragraph,release_date,author):
         article_object = article(
-        article_id = article_id,
-        article_title = article_title,
+        title = title,
         paragraph = paragraph,
         release_date = release_date,
         author = author)
@@ -32,8 +31,8 @@ def query_all_article():
 	"""
 	Print all the students in the database.
 	"""
-	article = session.query(article).all()
-	return Customers
+	Article = session.query(article).all()
+	return article
 
 def delete_article_id(id_number):
 	"""
