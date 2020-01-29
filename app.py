@@ -9,7 +9,8 @@ app.config['SECRET_KEY'] = 'you-will-never-guess'
  
 @app.route('/')
 def index():
-    return render_template('index.html',Article=session.query(article).all())
+    all_articles = session.query(article).all()
+    return render_template('index.html',all_articles=all_articles)
 
 @app.route('/post')
 def post():
@@ -29,7 +30,7 @@ def hello():
 
 @app.route('/specific_article/<int:article_id>', methods=(['GET','POST']))
 def spesific(article_id):
-    return render_template('specific-book.html', article=query_article_by_id(article_id))
+    return render_template('specific-book.html', a=query_article_by_id(article_id))
 
 @app.route('/log_in',methods=['POST','GET'])
 def log_in():
@@ -59,7 +60,7 @@ def add_books():
         paragraph=request.form['paragraph']
         add_article(title,author, paragraph, date)
         Article = query_all_article()
-        return render_template("index.html",Article=Article)
+        return redirect(url_for("index"))
 
     
 app.run(debug = True)

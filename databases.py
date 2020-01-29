@@ -63,9 +63,8 @@ def delete_article_name(name):
 ##	session.commit()
 
 def query_article_by_id(article_id):
-    Article = session.query(article).filter_by(
-            article_id=article).first()
-    return article
+    Article = session.query(article).filter_by(article_id=article_id).first()
+    return Article
 
 
 def hash_password(self, password):

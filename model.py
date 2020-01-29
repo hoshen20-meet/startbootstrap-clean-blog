@@ -15,14 +15,6 @@ class article(Base):
    release_date = Column(String)
    author = Column(String)
    
-
-class Books(Base):
-    __tablename__ = 'Books'
-    Book_id = Column(Integer, primary_key=True)
-    title = Column(String)
-    price = Column(Integer)
-    authorname=Column(String)
-    pic= Column(String)
    
 def hash_password(self, password):
 	  self.password_hash = pwd_security.encrypt(password)

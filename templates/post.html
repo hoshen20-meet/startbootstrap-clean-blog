@@ -94,10 +94,51 @@ There are also multiple types of competitions in Esports. First of all there is 
 Another type of esports is SpeedRunning. A speedrun is a playthrough of a specific game with the goal of finishing it as fast as possible. This category of esports is less popular since it might not be as interesting as a team vs. team game because the player who is focusing on finishing the game has only one goal, which is to finish the game as fast as possible. It might sometimes be a little boring to see a player concentrating only on one single thing and not tactics or strats (a change to the word strategy that is less used in esports) like a team game.
 </p>
 
+<p>There are many ways to play Esports, the first location that allowed to play competitivly in israel as a community was the Hype gaming lounge located in tel aviv, which was founded only in 2014 as a gaming cafe, a place that rented out PC's per hour. as the place grew bigger, the place had began having competitions for prizes, which grew bigger with every competition. The biggest prize they have given out by today was 5000 shekels and 5 gaming mice. if you wanna check them out click the very good API here.</p>
+
+
+
+  <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        width:80%;
+        height:1200px;
+         margin: auto;
+       }
+    </style>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var tel = {lat: 32.071752, lng: 34.789950};
+  
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 9, center: tel});
+  
+  var marker = new google.maps.Marker({position: tel, map: map});
+ 
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyD_1e9-jiABTPKehMIizGWjAp9gvCoboVo
+&callback=initMap"></script>
+
+
         </div>
       </div>
     </div>
+
   </article>
+
 
   <hr>
 
